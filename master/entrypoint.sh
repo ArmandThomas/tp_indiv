@@ -18,7 +18,9 @@ cd /spark/bin && /spark/sbin/../bin/spark-class org.apache.spark.deploy.master.M
 
 cd /app
 pip install pyspark
+pip install pyspark-kafka
 
 /spark/bin/spark-submit app.py
+/spark/bin/spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.1 real-time.py
 
 tail -f /dev/null
