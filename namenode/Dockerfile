@@ -8,8 +8,13 @@ ENV HDFS_CONF_dfs_namenode_name_dir=file:///hadoop/dfs/name
 RUN mkdir -p /hadoop/dfs/name
 VOLUME /hadoop/dfs/name
 
-ADD run.sh /run.sh
+COPY ./run.sh /run.sh
 RUN chmod a+x /run.sh
+
+COPY ./import_data.sh /import_data.sh
+RUN chmod a+x /import_data.sh
+
+COPY shared shared
 
 EXPOSE 9870
 
